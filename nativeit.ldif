@@ -1,0 +1,23 @@
+version: 1
+
+dn: dc=net
+objectClass: extensibleObject
+objectClass: domain
+objectClass: top
+dc: org
+
+dn: dc=nativeit,dc=net
+objectClass: extensibleObject
+objectClass: domain
+objectClass: top
+dc: nativeit
+
+dn: ou=Users,dc=nativeit,dc=net
+objectClass: organizationalUnit
+objectClass: top
+ou: Users
+
+dn: ou=Groups,dc=nativeit,dc=net
+objectClass: organizationalUnit
+objectClass: top
+ou: Groups
