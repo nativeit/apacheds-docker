@@ -1,4 +1,4 @@
-dn: dc=openmicroscopy,dc=org
-dc: openmicroscopy
+dn: dc=nativeit,dc=net
+dc: nativeit
 objectclass: domain
 objectclass: top
