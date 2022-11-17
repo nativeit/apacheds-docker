@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
-MAINTAINER ome-devel@lists.openmicroscopy.org.uk
+# MAINTAINER: dev@nativeit.net
 
 #############################################
 # ApacheDS installation
@@ -19,15 +19,15 @@ VOLUME ${APACHEDS_DATA}
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections \
     && apt-get update \
     && apt-get install -y \
-       apt-utils
+    apt-utils
 
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections \
     && apt-get install -y \
-       ldap-utils \
-       procps \
-       openjdk-8-jre-headless \
-       curl \
-       jq \
+    ldap-utils \
+    procps \
+    openjdk-8-jre-headless \
+    curl \
+    jq \
     && curl https://downloads.apache.org/directory/apacheds/dist/${APACHEDS_VERSION}/${APACHEDS_ARCHIVE} > ${APACHEDS_ARCHIVE} \
     && dpkg -i ${APACHEDS_ARCHIVE} \
     && rm ${APACHEDS_ARCHIVE}
@@ -54,7 +54,7 @@ RUN chown ${APACHEDS_USER}:${APACHEDS_GROUP} /run.sh \
 
 ADD instance/* ${APACHEDS_BOOTSTRAP}/conf/
 RUN sed -i "s/ads-contextentry:: [A-Za-z0-9\+\=\/]*/ads-contextentry:: $(base64 -w 0 $APACHEDS_BOOTSTRAP/conf/ads-contextentry.decoded)/g" /$APACHEDS_BOOTSTRAP/conf/config.ldif
-ADD ome.ldif ${APACHEDS_BOOTSTRAP}/
+ADD nativeit.ldif ${APACHEDS_BOOTSTRAP}/
 RUN mkdir ${APACHEDS_BOOTSTRAP}/cache \
     && mkdir ${APACHEDS_BOOTSTRAP}/run \
     && mkdir ${APACHEDS_BOOTSTRAP}/log \
