@@ -12,6 +12,12 @@ objectClass: domain
 objectClass: top
 dc: nativeit
 
+dn: dc=ldap dc=nativeit,dc=net
+objectClass: extensibleObject
+objectClass: domain
+objectClass: top
+dc: ldap
+
 dn: ou=Users,dc=nativeit,dc=net
 objectClass: organizationalUnit
 objectClass: top

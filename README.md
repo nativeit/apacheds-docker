@@ -8,7 +8,7 @@ The project sources can be found on [GitHub](https://github.com/nativeit/apached
 ## Build
 
     git clone https://github.com/nativeit/apacheds-docker.git
-    docker build -t nativeit/apacheds:2.0.0.AM26 apacheds-docker
+    docker build -t nativeit/apacheds:2.0.0.AM26 ./
 
 
 ## Installation
